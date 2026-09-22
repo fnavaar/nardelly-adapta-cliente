@@ -15,7 +15,7 @@
 ## Regras de execução
 
 - **Uma task por vez**; ao concluir, provas + teste humano antes da próxima; `[x]` somente com evidência e aceite.
-- Responsável `@Nardelly` é provisório até a call de setup nomear o champion (B-RACI-01); prazos a definir com fonte humana — não inventados.
+- **Champion: @Nardelly — confirmado por Navaar em 22/09/2026.** Nomes por papel da operação (B-RACI-01) a definir na call de setup; prazos a definir com fonte humana — não inventados.
 - Cobertura: CA-1-001..005 + CA-1-101..106 + CA-1-201..205 + CA-1-401..405 = 20/20 (SPEC-1-001: T01; SPEC-1-002: T02..T03; SPEC-1-003: T04; SPEC-1-004: T05).
 - Grafo: T01→T02→T03→T04; T05 paralelizável a partir de T01, mas uma task por vez.
-- Tasks novas publicadas sem UUID — o sincronizador gera os marcadores; nunca criar manualmente.
+- UUIDs gerados pelo portal na Jornada canônica (`00.tasks_per_fase/fase_1.md`): T01 `53479f4d-5f1b-405d-a40d-ca4ab56659dc` (+ subtasks `bb8dac49-2db0-4ef4-9a62-2b73bcfa813a`, `0feb7b0d-3073-48dc-ab7d-a499cf1ab139`), T02 `8a429a35-da91-4ecf-80bf-6d29d07da255`, T03 `40f16555-9f24-45d2-bb49-5ede691f41e4`, T04 `4babdba4-e217-4701-959b-924eefb7c5ea`, T05 `680b9453-0196-421e-bc3e-edb1f0fde7e5`. Não criar, reutilizar ou apagar UUIDs manualmente.

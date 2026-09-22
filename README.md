@@ -10,5 +10,5 @@ Workspace operacional do projeto **Central Operacional Previdenciária** (consul
 - Uma task por vez; prova + teste humano antes da próxima.
 
 ## Papéis
-- **Champion:** a confirmar na call de setup — responsável provisório `@Nardelly` até lá (B-RACI-01).
+- **Champion:** @Nardelly — confirmado em 22/09/2026; nomes por papel da operação (B-RACI-01) a definir na call de setup.
 - **Consultor:** Felipe Navaar · **CSM:** Izabel.
