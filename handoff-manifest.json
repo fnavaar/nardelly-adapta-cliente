@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "adapta-cliente-handoff/v1",
+  "phase": 1,
+  "versions": {
+    "package": "1.0.0",
+    "adapta": "1.0.0",
+    "adaptaCliente": "1.0.0"
+  },
+  "generatedAt": "2026-09-22T15:05:00.000Z",
+  "note": "Hashes referem-se ao pacote local validado (artifacts/nardelly-adapta-cliente, validador oficial PASS). O conector GitHub pode normalizar whitespace/newline final dos arquivos remotos (divergência observada de ate 14 bytes em spec-1-003/spec-1-004, sem alteracao de conteudo); re-selar com os bytes remotos reais quando o repo estiver clonavel (publico ou com credencial).",
+  "files": [
+    {"path": ".adapta-cliente/estado-atual.md", "sha256": "4df5936a30905f055b904391e52eb4d86db34d2545a348b04cef24da53a65271", "classification": "template-publico"},
+    {"path": ".claude/settings.json", "sha256": "a13bfbd696d8201b50de49bcb48d768207f557a9b5b3764d9fae0e51170a81dc", "classification": "template-publico"},
+    {"path": "01_projeto/constituicao.md", "sha256": "8f9a1dd2a6f20b7cc3a6c8851b1640e8175e53f05f88aa71a5621403119677b9", "classification": "template-publico"},
+    {"path": "01_projeto/objetivo-e-visao.md", "sha256": "7005baec7214413c1f54fb87c104287ef69f371d0ec5372a5a6813846490eeb0", "classification": "template-publico"},
+    {"path": "02_reunioes/ata-de-corte.md", "sha256": "833fcd4017af24cee18c96769a6f9cb55a5e5ec35f6859d9b54aef7eed7ccb38", "classification": "template-publico"},
+    {"path": "04_fase-atual/fase.md", "sha256": "1ce1c163513c30231ecaface08ff90d44a5c9111d9c0c2811721c3254d4e59b1", "classification": "fase-atual"},
+    {"path": "04_fase-atual/specs/spec-1-001.md", "sha256": "f0aa37a658599ff99284d15c5f5dd05d725f5c2185a152caeefecb642be123cf", "classification": "spec-fase-atual"},
+    {"path": "04_fase-atual/specs/spec-1-002.md", "sha256": "1ef00698620e3c9d9fe6433f35bd72a3c0ab4c0b26c13a44ecc810a4fd0a0168", "classification": "spec-fase-atual"},
+    {"path": "04_fase-atual/specs/spec-1-003.md", "sha256": "854aef5fa3ffd963a61c615bfbac5817eb6cebd9b95bd3611dcb607e7abfcd16", "classification": "spec-fase-atual"},
+    {"path": "04_fase-atual/specs/spec-1-004.md", "sha256": "87416d7cd8803dc6d4022b21883a3082477bf4acb4c15d6d5b9271398521afe3", "classification": "spec-fase-atual"},
+    {"path": "AGENTS.md", "sha256": "ddf918a29857acfa74b6cf6c0cb5ce6795503807e1f6eb16b89c958481fd92e5", "classification": "template-publico"},
+    {"path": "CLAUDE.md", "sha256": "ddf918a29857acfa74b6cf6c0cb5ce6795503807e1f6eb16b89c958481fd92e5", "classification": "template-publico"},
+    {"path": "README.md", "sha256": "ef0aec60d561506f84ae1c4429a75a4610be0e282fb6da589b755d070938be50", "classification": "template-publico"},
+    {"path": "STATUS.md", "sha256": "9916fab00b664147ce22eabf4f8351f6aa6748143502199dbe99c412041aed8f", "classification": "template-publico"},
+    {"path": "changelog.md", "sha256": "7a6586522c35cd905a0ca910f3ab9229d20e557d2988c9750ad57768b654082f", "classification": "template-publico"}
+  ]
+}
