@@ -1,5 +1,13 @@
 # Changelog — Nardelly Advogados · adapta-cliente
 
+## 2026-10-05 — F1-T01 DEBUG após falhas humanas; aguardando reteste
+- Champion aprovou os testes humanos 1 e 2; reportou falha nos testes 3 (fluxo para alternar/validar papéis), 4 (troca de sessão após revogação em abas) e 5 (trilha sem visualização na interface).
+- Causa confirmada: PocketBase LocalAuthStore padrão compartilha estado via localStorage entre abas; rota administrativa não exigia papel; login sempre encaminhava para admin; trilha existia no backend (47 eventos observados), mas não tinha página para consulta.
+- Correções no projeto Skip 60649, versão 0.0.10: authStore isolado por aba em sessionStorage; rotas autenticadas fazem authRefresh ao carregar/retomar foco e validam papel; /admin/usuarios apenas administração; seletor de sete fixtures e painel por papel com prova negativa; nova /auditoria paginada com ator, data/hora, ação, entidade e estados.
+- Verificações: QA Skip 0.0.10 PASS; advogado foi bloqueado em /admin/usuarios no preview; administração continuou com sua identidade em outra aba; eventos reais visíveis na nova tela de auditoria; token fresco foi 200 antes e 401 após revogação, fixture reativada.
+- Uma tentativa de clique de revogação pela interface não foi confirmada nesta execução. A Champion deve testar esse fluxo na interface junto com os demais critérios; não inferir aceite humano.
+- Estado: `aguardando_teste_humano`; F1-T01 não concluída.
+
 ## 2026-09-22 — F1-T01 implementada; aguardando teste humano
 - Projeto Skip `Central de Processos — Nardelly` criado (id 60649; SkipCloud running).
 - Autenticação com sete papéis funcionais, vínculo server-side e massa sintética criada.
