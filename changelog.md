@@ -1,12 +1,18 @@
 # Changelog — Nardelly Advogados · adapta-cliente
 
-## 2026-10-05 — F1-T01 DEBUG após falhas humanas; aguardando reteste
+## 2026-10-05 — F1-T01 concluída após aprovação humana
+- Champion Nardelly confirmou “Teste aprovado” após o roteiro de reteste dos critérios 3, 4 e 5; somado à aprovação anterior dos testes 1 e 2, todos os critérios humanos da task foram aceitos.
+- Revalidação automatizada: os sete papéis autenticaram; atendimento→criar rota, cadastro→validar pendência e supervisão→criar usuário foram negados HTTP 403; as negações foram auditadas; autoelevação foi negada/auditada; a revogação invalidou o mesmo token em HTTP 401 imediatamente após resposta 200 antes da revogação. Fixture sintética reativada ao final.
+- QA Skip 0.0.10 passou; preview mostrou controle de papel, isolamento de sessão por aba e trilha de auditoria.
+- Task marcada concluída em `04_fase-atual/fase.md`; recibo em `05_entregas/recibo-f1-t01-2026-10-05.md`.
+- Estado da fase: 1/5 tasks (20%). F1-T02..T05 não iniciadas; não iniciar outra task sem novo pedido da Champion.
+
+## 2026-10-05 — F1-T01 DEBUG após falhas humanas; correções prontas para reteste
 - Champion aprovou os testes humanos 1 e 2; reportou falha nos testes 3 (fluxo para alternar/validar papéis), 4 (troca de sessão após revogação em abas) e 5 (trilha sem visualização na interface).
 - Causa confirmada: PocketBase LocalAuthStore padrão compartilha estado via localStorage entre abas; rota administrativa não exigia papel; login sempre encaminhava para admin; trilha existia no backend (47 eventos observados), mas não tinha página para consulta.
 - Correções no projeto Skip 60649, versão 0.0.10: authStore isolado por aba em sessionStorage; rotas autenticadas fazem authRefresh ao carregar/retomar foco e validam papel; /admin/usuarios apenas administração; seletor de sete fixtures e painel por papel com prova negativa; nova /auditoria paginada com ator, data/hora, ação, entidade e estados.
-- Verificações: QA Skip 0.0.10 PASS; advogado foi bloqueado em /admin/usuarios no preview; administração continuou com sua identidade em outra aba; eventos reais visíveis na nova tela de auditoria; token fresco foi 200 antes e 401 após revogação, fixture reativada.
-- Uma tentativa de clique de revogação pela interface não foi confirmada nesta execução. A Champion deve testar esse fluxo na interface junto com os demais critérios; não inferir aceite humano.
-- Estado: `aguardando_teste_humano`; F1-T01 não concluída.
+- Verificações: QA 0.0.10 PASS; advogado bloqueado em /admin/usuarios; administração continuou com sua identidade em outra aba; auditoria visível; token fresco 200 antes e 401 após revogação, fixture reativada.
+- Estado naquela etapa: aguardando reteste humano; sem conclusão até aceite explícito.
 
 ## 2026-09-22 — F1-T01 implementada; aguardando teste humano
 - Projeto Skip `Central de Processos — Nardelly` criado (id 60649; SkipCloud running).
