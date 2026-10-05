@@ -6,7 +6,7 @@
 
 | ID | Task | SPEC | Critérios | Leva | Pré-condições | Ponto de parada | Evidência esperada | Status |
 |---|---|---|---|---|---|---|---|---|
-| F1-T01 | Implantar o acesso da equipe com papéis e trilha de auditoria | SPEC-1-001 | CA-1-001..005 | 1 | autorização explícita de execução (ambiente definido: Skip) | ambiente sem controle no servidor | logs das provas negativas + recibo | ☐ |
+| F1-T01 | Implantar o acesso da equipe com papéis e trilha de auditoria | SPEC-1-001 | CA-1-001..005 | 1 | autorização explícita de execução (ambiente definido: Skip) | ambiente sem controle no servidor | logs das provas negativas + recibo | [x] 2026-10-05 · Champion aprovou o reteste humano |
 | F1-T02 | Estruturar o recebimento de casos: ficha de intake e cadastro completo | SPEC-1-002 | CA-1-101 | 2 | F1-T01 aceita | campo obrigatório não definido | captura + trilha + recibo | ☐ |
 | F1-T03 | Controlar documentos de cada caso com checklist, protocolo e devolução | SPEC-1-002 | CA-1-102..106 | 3 | F1-T02 aceita; B-CHK-01/B-TIPO-01 | conteúdo jurídico não aprovado | roteiro da demonstração + recibo | ☐ |
 | F1-T04 | Medir a operação: árvore de funil, estoque e baseline | SPEC-1-003 | CA-1-201..205 | 4 | F1-T03 aceita | nó da árvore sem marco definido | contagem conferida + capturas + recibo | ☐ |
