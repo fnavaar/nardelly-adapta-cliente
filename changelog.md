@@ -1,5 +1,12 @@
 # Changelog — Nardelly Advogados · adapta-cliente
 
+## 2026-10-05 — F1-T02 analisada; bloqueada por definição de intake
+- F1-T01 segue concluída (1/5 tasks; 20%), com aceite humano e recibo registrados.
+- Selecionada a próxima task elegível, F1-T02 — estruturar recebimento de casos e ficha de intake; nenhuma implementação foi iniciada.
+- Inspeção do Skip 60649 v0.0.10: a coleção `casos` contém `titulo`, `status`, `descricao`, `criado_por` e datas; não há ainda tela/coleção de intake ou campos mínimos.
+- `SPEC-1-002` CA-1-101/RN-101 exigem criar pendências explícitas para cada dado obrigatório ausente, mas não enumeram esses dados. A SPEC ordena parar se campo obrigatório não estiver definido.
+- Registrada DÚVIDA/B-INTAKE-01: champion/jurídico precisa fornecer lista aprovada de campos mínimos e quais ausências geram pendências. Não inventar conteúdo jurídico ou regra operacional. Retomar análise da F1-T02 após decisão; depois será pedido gate separado para implementação.
+
 ## 2026-10-05 — F1-T01 concluída após aprovação humana
 - Champion Nardelly confirmou “Teste aprovado” após o roteiro de reteste dos critérios 3, 4 e 5; somado à aprovação anterior dos testes 1 e 2, todos os critérios humanos da task foram aceitos.
 - Revalidação automatizada: os sete papéis autenticaram; atendimento→criar rota, cadastro→validar pendência e supervisão→criar usuário foram negados HTTP 403; as negações foram auditadas; autoelevação foi negada/auditada; a revogação invalidou o mesmo token em HTTP 401 imediatamente após resposta 200 antes da revogação. Fixture sintética reativada ao final.
