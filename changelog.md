@@ -1,5 +1,10 @@
 # Changelog — Nardelly Advogados · adapta-cliente
 
+## 2026-10-13 — B-INTAKE-01 resolvido; F1-T02 pronta para autorização
+- Champion respondeu à proposta de campos do intake com "Aprovar com ajustes"; ajustes aplicados: indicação obrigatória; senha MEU INSS opcional com tarefa automática de nova senha no INSS quando ausente; sindicato condicional (informar qual quando filiado); escolaridade, profissão e parente já atendido obrigatórios; grupo familiar do bloco LOAS sem limite fixo de 6 pessoas.
+- Definição resultante: 18 campos obrigatórios (ausência gera pendência explícita), condicionais por canal/vínculo/família e opcionais; bloco específico por família LOAS/urbano/rural. Registrada em `06_notas/decisao-intake-campos-2026-10-13.md`.
+- Análise da F1-T02 concluída (achados, plano, riscos e provas apresentados à Champion); nenhuma implementação iniciada; autorização será solicitada em mensagem separada (portão do método).
+
 ## 2026-10-05 — F1-T02 analisada; bloqueada por definição de intake
 - F1-T01 segue concluída (1/5 tasks; 20%), com aceite humano e recibo registrados.
 - Selecionada a próxima task elegível, F1-T02 — estruturar recebimento de casos e ficha de intake; nenhuma implementação foi iniciada.
