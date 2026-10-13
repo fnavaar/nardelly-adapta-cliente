@@ -3,11 +3,11 @@
 - task_id: F1-T02
 - champion: Nardelly
 - spec: `04_fase-atual/specs/spec-1-002.md`
-- etapa: bloqueada
+- etapa: aguardando_autorizacao
 - autorizacao_implementacao: ausente
 - teste_humano: pendente; ainda não houve implementação nem roteiro humano para esta task.
 - verificacao_automatica: pendente; nenhuma alteração de produto executada.
 - aprendizado: capturado:`06_notas/aprendizado-continuo/AP-2026-10-05-sessao-por-aba-e-auditoria.md`
-- ultima_acao: análise da F1-T02 concluiu que CA-1-101 e RN-101 exigem pendências para cada dado mínimo obrigatório, mas a SPEC não enumera os campos; schema atual de `casos` contém apenas `titulo`, `status`, `descricao`, `criado_por` e autodates, sem ficha de intake.
-- proxima_acao: obter do champion/jurídico a lista aprovada de campos obrigatórios de intake; sem isso não é possível provar “cada dado faltante” sem inventar regra operacional.
-- atualizado_em: 2026-10-05T14:14:19-03:00
+- ultima_acao: B-INTAKE-01 resolvido — Champion aprovou "com ajustes" a definição de campos do intake (decisão registrada em `06_notas/decisao-intake-campos-2026-10-13.md`); análise da F1-T02 concluída com plano e provas apresentados.
+- proxima_acao: aguardar autorização explícita da Champion para implementar o plano da F1-T02.
+- atualizado_em: 2026-10-13T19:12:51-03:00
