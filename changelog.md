@@ -1,9 +1,20 @@
 # Changelog — Nardelly Advogados · adapta-cliente
 
+## 2026-10-13 — F1-T02 implementada (RN-101); aguardando teste humano
+- Autorização explícita da Champion (“autorizado”, 2026-10-13 19:16 BRT) posterior ao relatório de análise; etapa `implementando` registrada antes da primeira alteração.
+- RED confirmado: caso incompleto criado no estado anterior sem gerar pendências (0 registros) — falha que motiva CA-1-101.
+- Implementação no projeto Skip 60649, versão 0.0.11 (QA PASS em setup, análise estática, build, integrações e testes):
+  - Migração 0005: campos aprovados da ficha de intake na coleção `casos` (data, canal+detalhe, atendente, indicação, dados do atendido, titular, benefício, senha MEU INSS, sindicato, escolaridade, profissão, parente, contrato, documentos, blocos LOAS/urbano/rural) e nova coleção `pessoas` (titular, atendido, representante, grupo familiar sem limite fixo, dependente, assinante à rogo, parente cliente) com RLS pelos papéis da SPEC-1-001.
+  - Hook `intake_pendencias` (RN-101, after-success): cada obrigatório ausente vira pendência explícita vinculada ao caso; condicionais exigidos por canal/vínculo/filiação/parente/contrato/documentos; senha MEU INSS ausente cria a tarefa “gerar nova senha junto à agência do INSS”; cada pendência gerada é auditada (ator “sistema (RN-101)”, caso, rótulo); falha de gravação é logada, nunca silenciosa; o caso nunca é descartado.
+  - Telas: `/intake/nova` (ficha com blocos condicionais por família; acesso atendimento/cadastro) e `/caso/:id` (dados da ficha + pendências do caso); link “Nova ficha de intake” no painel dos papéis de atendimento/cadastro.
+- GREEN confirmado por API: caso com 14 faltas gerou 14 pendências correspondentes (+ tarefa INSS quando senha vazia); caso com `parente_ja_atendido=nao` não gerou pendência de parente (correto); condicionais de canal/vínculo/sindicato comprovados no caso 3 (15 pendências); eventos RN-101 visíveis na trilha via administração.
+- Regressão F1-T01 completa PASS: 7 logins, negações atendimento→rota / cadastro→pendência / supervisão→usuário (403 auditadas), autoelevação 403, revogação do advogado 200→401 com fixture reativada.
+- Estado: `aguardando_teste_humano`; F1-T02 não concluída até aceite explícito.
+
 ## 2026-10-13 — B-INTAKE-01 resolvido; F1-T02 pronta para autorização
 - Champion respondeu à proposta de campos do intake com "Aprovar com ajustes"; ajustes aplicados: indicação obrigatória; senha MEU INSS opcional com tarefa automática de nova senha no INSS quando ausente; sindicato condicional (informar qual quando filiado); escolaridade, profissão e parente já atendido obrigatórios; grupo familiar do bloco LOAS sem limite fixo de 6 pessoas.
 - Definição resultante: 18 campos obrigatórios (ausência gera pendência explícita), condicionais por canal/vínculo/família e opcionais; bloco específico por família LOAS/urbano/rural. Registrada em `06_notas/decisao-intake-campos-2026-10-13.md`.
-- Análise da F1-T02 concluída (achados, plano, riscos e provas apresentados à Champion); nenhuma implementação iniciada; autorização será solicitada em mensagem separada (portão do método).
+- Análise da F1-T02 concluída (achados, plano, riscos e provas apresentados à Champion); nenhuma implementação iniciada; autorização foi solicitada em mensagem separada (portão do método).
 
 ## 2026-10-05 — F1-T02 analisada; bloqueada por definição de intake
 - F1-T01 segue concluída (1/5 tasks; 20%), com aceite humano e recibo registrados.
