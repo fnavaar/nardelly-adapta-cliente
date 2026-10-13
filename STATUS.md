@@ -7,16 +7,18 @@
 - **Champion: @Nardelly — confirmado por Navaar em 22/09/2026.** Nomes por papel da operação (B-RACI-01) a definir na call de setup.
 - Jornada sincronizada: 7 UUIDs gerados pelo portal (5 tasks + 2 subtasks); parser PASS com `--require-ids`.
 - **Ambiente de construção definido: Skip (GoSkip + SkipCloud)** — B-ENV-01 resolvido.
-- **F1-T01 concluída (1/5 tasks; 20%)** em 2026-10-05 após aprovação humana explícita e revalidação dos critérios CA-1-001..005. Recibo em `05_entregas/recibo-f1-t01-2026-10-05.md`.
-- **B-INTAKE-01 RESOLVIDO (2026-10-13):** Champion aprovou "com ajustes" a definição de campos da ficha de intake (18 obrigatórios, condicionais e opcionais; bloco específico por família LOAS/urbano/rural). Decisão em `06_notas/decisao-intake-campos-2026-10-13.md`.
-- **F1-T02 concluída (2/5 tasks; 40%)** em 2026-10-13, com aceite humano explícito (“tudo funcionando”) e revalidação de CA-1-101; recibo em `05_entregas/recibo-f1-t02-2026-10-13.md`. Skip 0.0.11 está no preview; produção não publicada. A etapa `test` do QA retornou `ran=false`; as provas API/preview e regressão foram executadas à parte e estão discriminadas no recibo.
-- **F1-T03 bloqueada por B-CHK-01 e B-TIPO-01:** a SPEC-1-002 requer checklist jurídico v1 aprovado e lista de tipos de demanda representativos para demonstrar o fluxo; esses insumos ainda não constam nas notas operacionais. A Champion informou que fornecerá os dados posteriormente. O projeto atual tem coleção de pendências mínima (`caso`, `descricao`, `status` aberta/resolvida), sem coleções de checklist/protocolo nem fluxo de estados documentais. Nenhuma implementação da F1-T03 foi iniciada.
-- **Solicitação adicional após aceite:** tornar “Tipo de benefício” um campo selecionável com catálogo de benefícios do INSS agrupado por família. Registrada no changelog para análise de escopo/fonte; não implementada nem incorporada ao escopo F1-T02. A SPEC-1-002 diz que o catálogo amplo é fora de escopo da Fase 1 e pertence à Fase 2.
-- Dados reais bloqueados até a política de dados aprovada (B-POL-01); usar somente massa sintética.
-- F1-T04..F1-T05 não iniciadas; F1-T04 depende de F1-T03 aceita; F1-T05 depende de B-ADV-01/B-ADVBOX-ADVOX.
+- **F1-T01 concluída (1/5 tasks; 20%)** em 2026-10-05, após aceite humano explícito; recibo `05_entregas/recibo-f1-t01-2026-10-05.md`.
+- **B-INTAKE-01 resolvido:** campos da ficha aprovados com ajustes, em `06_notas/decisao-intake-campos-2026-10-13.md`.
+- **F1-T02 concluída (2/5 tasks; 40%)** em 2026-10-13, com aceite humano “tudo funcionando” e revalidação CA-1-101; recibo `05_entregas/recibo-f1-t02-2026-10-13.md`. Skip 0.0.11 está somente no preview, sem publicação em produção. No QA, `test.ran=false`; provas de API/preview e regressão estão discriminadas no recibo.
+- **F1-T03 bloqueada; insumo B-CHK-01 parcialmente recebido:** Champion esclareceu que a página 1 do PDF enviado contém a lista geral, e as páginas 2–5 são “Provas Rurais”, exemplificativas/não exaustivas. O documento inclui imagens de exemplos com dados identificáveis, não copiadas para o repositório. Ainda é necessário definir se os documentos da terra listados na página 1 são universais ou condicionais a casos rurais/atividade na terra.
+- **B-TIPO-01 continua pendente:** Champion precisa indicar os tipos representativos de demanda para a demonstração. O rol rural não exaustivo não substitui essa seleção.
+- Baseline Skip v0.0.11: `pendencias` tem apenas `caso`, `descricao` e estados `aberta`/`resolvida`; ainda não há coleções para checklist/protocolo nem workflow documental. Não foi feita implementação da F1-T03.
+- Pedido à parte: tornar “Tipo de benefício” seletor com todos os benefícios do INSS por família. Catálogo amplo está fora da Fase 1 segundo a SPEC-1-002; sem implementação e sujeito à decisão de escopo/fonte.
+- Dados reais proibidos até política B-POL-01; seguir usando só fixtures sintéticas.
+- F1-T04 e F1-T05 não iniciadas; F1-T04 depende da conclusão da F1-T03.
 
 ## Próximo passo
-Aguardar da Champion o checklist jurídico v1 (B-CHK-01) e a lista de tipos representativos de demanda (B-TIPO-01). Com os dois insumos, retomar análise da F1-T03; implementação exige autorização separada.
+Champion indicar (a) os tipos representativos para a demonstração; (b) se “documentos da terra” da página 1 são aplicáveis a todo caso ou só a casos com contexto rural/atividade na terra. Então retomar a análise da F1-T03 e pedir autorização separada antes de implementar.
 
 ## Bloqueios ativos
-B-POL-01 (política de dados), B-RACI-01 (nomes por papel), **B-CHK-01 (checklist jurídico v1; pendente da Champion/jurídico)**, **B-TIPO-01 (tipos representativos; pendente da Champion)**, B-BASE-01 (baseline), B-ADV-01 (acesso ADVBOX), B-ADVBOX-ADVOX (escolha do sistema) — detalhados nas SPECs. B-ENV-01 **resolvido**; B-INTAKE-01 **resolvido**.
+B-POL-01 (política de dados), B-RACI-01 (nomes por papel), B-CHK-01 (aprovação/condicionalidade final do checklist), **B-TIPO-01 (tipos representativos, pendente da Champion)**, B-BASE-01 (baseline), B-ADV-01 (acesso ADVBOX), B-ADVBOX-ADVOX (decisão do sistema). B-ENV-01 e B-INTAKE-01 resolvidos.
