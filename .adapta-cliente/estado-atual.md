@@ -1,13 +1,13 @@
 # Estado atual — Adapta Cliente
 
-- task_id: F1-T02
+- task_id: nenhuma
 - champion: Nardelly
-- spec: `04_fase-atual/specs/spec-1-002.md`
-- etapa: aguardando_teste_humano
-- autorizacao_implementacao: confirmada + 2026-10-13 19:16 BRT; trecho “autorizado”, posterior ao relatório de análise.
-- teste_humano: pendente; roteiro apresentado em 2026-10-13, aguardando execução e resposta da Champion.
-- verificacao_automatica: passou + Skip 0.0.11 (QA setup/análise estática/build/integrações/testes PASS); RED confirmado (caso incompleto sem mecanismo gerou 0 pendências); GREEN confirmado (caso com faltas gerou 1 pendência por campo ausente + tarefa da senha MEU INSS; condicionais de canal/vínculo/sindicato comprovados; eventos RN-101 na trilha); regressão F1-T01 completa PASS (7 logins, 3 negações 403, autoelevação 403, revogação 200→401, fixture reativada); telas de intake e do caso verificadas no preview.
-- aprendizado: capturado:`06_notas/aprendizado-continuo/AP-2026-10-05-sessao-por-aba-e-auditoria.md`
-- ultima_acao: implementação da F1-T02 concluída (migração 0005, hook RN-101, telas /intake/nova e /caso/:id, link no painel) e verificada; versão 0.0.11 no preview.
-- proxima_acao: Champion executar o roteiro de teste humano da F1-T02 e informar o resultado.
-- atualizado_em: 2026-10-13T19:27:59-03:00
+- spec: nenhuma
+- etapa: sem_task
+- autorizacao_implementacao: ausente
+- teste_humano: aprovado + 2026-10-13 19:44 BRT; F1-T02 aprovada pela Champion com a mensagem “tudo funcionando”.
+- verificacao_automatica: passou + revalidação em 2026-10-13: caso sintético faltando somente “Profissão atual” gerou exatamente uma pendência correspondente e evento de auditoria RN-101; revalidação de regressão F1-T01 executada; recibo em `05_entregas/recibo-f1-t02-2026-10-13.md` preserva `qa.test.ran=false` (suíte de testes não executada pelo Skip).
+- aprendizado: capturado:`06_notas/aprendizado-continuo/AP-2026-10-13-1953-qa-skip-suite-not-executed.md`
+- ultima_acao: F1-T02 fechada em 2026-10-13 com recibo, changelog, STATUS e fase atualizados; projeto Skip 60649 v0.0.11 continua somente em preview.
+- proxima_acao: aguardar decisão do consultor sobre o novo pedido de catálogo de benefícios antes de abrir qualquer implementação.
+- atualizado_em: 2026-10-13T19:53:26-03:00
