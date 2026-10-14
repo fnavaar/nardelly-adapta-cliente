@@ -5,3 +5,9 @@
 - Antes de implementar, a revisão do código e do estado Skip 60649 confirmou migração 0006 aplicada e achou: hook cria checklist rural até para família/tipo vazio ou não reconhecido; todos os itens de demonstração eram `obrigatoria=true` apesar do rótulo `PENDENTE APROVAÇÃO JURÍDICA`; protocolo dependia apenas de checagem de duplicidade em hook de requisição sem índice único; UI podia deixar estado da pendência inconsistente após falha ao atualizar depois de criar protocolo; e o carregamento de dados do caso mostrava erro sem status acessível em um caminho.
 - Escopo desta rodada é fechar mecanismos técnicos com massa sintética conforme o plano B da SPEC. O conteúdo e a aprovação jurídica do checklist continuam pendentes; nenhuma pesquisa ou requisito legal será inventado.
 - `.skip.config.json` já estava alterado antes deste ciclo e será preservado. Preview atual é 0.0.17 (`b299fc5`); produção não publicada.
+
+## 2026-10-14 — F1-T03: aplicação/QA bloqueados
+- Foram escritos ajustes no working tree do Skip para plano B sintético opcional, roteamento server-side de checklist/protocolo/transições/devolução/encaminhamento e atualização de UI. A migração 0007, hooks e UI ainda não estão aplicados no preview.
+- `skip_project_apply_changes` retornou `Unknown error`. O status consultado em seguida confirmou 13 arquivos pendentes (incluindo `.skip.config.json`, alteração preexistente), versão/preview ainda 0.0.17 (`b299fc5`), produção não publicada; lista de migrações continua até 0006. QA não executou.
+- Nenhuma ficha, protocolo, pessoa ou outro registro de teste foi criado; não houve gravação de dados de cliente.
+- Estado: F1-T03 `bloqueada`. Próxima ação: revisar arquivos pendentes e recuperar aplicação/QA, sem descartar mudanças; só então avaliar teste sintético no preview. B-CHK-01 permanece pendente; não iniciar F1-T04.
