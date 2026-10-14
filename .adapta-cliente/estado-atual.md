@@ -3,11 +3,11 @@
 - task_id: F1-T03
 - champion: Nardelly
 - spec: `04_fase-atual/specs/spec-1-002.md`
-- etapa: aguardando_teste_humano
+- etapa: em_correcao
 - autorizacao_implementacao: confirmada em 2026-10-13 20:59 BRT — “Autorizo a implementação da F1-T03 conforme o plano apresentado, mantendo o checklist jurídico pendente de aprovação e usando apenas dados sintéticos.”
-- teste_humano: pendente
-- verificacao_automatica: passou na versão Skip 0.0.13 (`dfa77aa`): setup, análise estática, build e integrações OK; `test.ran=false` porque a plataforma não executou a suíte do projeto. Migração 0006 aplicada; coleções `checklists` e `protocolos` confirmadas no Skip. Preview carregou login, painel de Atendimento e ficha `/intake/nova`; a tentativa automatizada de criação não concluiu os campos de data segmentados, então o fluxo ponta a ponta aguarda teste manual.
+- teste_humano: falhou em 2026-10-13 21:15 BRT — a Champion relatou que os nomes dos campos estão diferentes e que perde o progresso do preenchimento ao mudar de aba.
+- verificacao_automatica: última versão aprovada pela pipeline foi 0.0.13; suíte de testes não executada (`test.ran=false`). Início de diagnóstico: leitura estática de `src/pages/NovaFicha.tsx` confirmou que os valores da ficha vivem apenas em estado React local; nenhuma persistência de rascunho foi implementada. Ainda falta reproduzir separadamente alternância de abas, navegação/retorno e possível recarga no preview, além de comparar rótulos com as três fichas originais.
 - aprendizado: capturado:`06_notas/aprendizado-contínuo/AP-2026-10-13-1953-qa-skip-suite-not-executed.md`
-- ultima_acao: correção do hook `gates_documentais.js` aplicada e QA 0.0.13 passou; implementação está disponível no preview.
-- proxima_acao: Champion executar o roteiro humano no preview e informar se o fluxo funcionou ou qual falha ocorreu.
-- atualizado_em: 2026-10-13T21:06:00-03:00
+- ultima_acao: teste humano da F1-T03 reportou discrepância nos nomes dos campos e perda de preenchimento ao trocar de aba; task mantida aberta para correção, sem iniciar outra.
+- proxima_acao: reproduzir no preview os cenários de mudança de aba e validar os rótulos do intake contra as fichas de origem antes de escolher a correção mínima.
+- atualizado_em: 2026-10-13T21:19:13-03:00
