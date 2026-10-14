@@ -3,20 +3,19 @@
 **Data:** 2026-10-13 · **Fase atual:** 1 (fundação segura, intake e registro documental)
 
 ## Estado
-- Escopo definitivo v1.0 aprovado (5 fases); SPECs F1 (4) e tasks F1-T01..T05 publicadas.
 - **F1-T01 concluída (1/5 tasks; 20%)** após aceite humano explícito; recibo `05_entregas/recibo-f1-t01-2026-10-05.md`.
 - **B-INTAKE-01 resolvido. F1-T02 concluída (2/5 tasks; 40%)** com aceite humano “tudo funcionando”; recibo `05_entregas/recibo-f1-t02-2026-10-13.md`.
-- **F1-T03 permanece aberta, aguardando reteste humano**, após correção de uma falha reportada no primeiro teste. Versão atual do preview: Skip 0.0.15 (`214bb2c`); produção não publicada.
-- **Correção reproduzida e revalidada:** alternar para outra aba e voltar fazia a ficha perder o valor porque `ProtectedRoute` desmontava a tela ao mostrar a validação da sessão. Agora a rota/formulário continua montada e não interativa enquanto a revalidação ocorre; se falhar, sessão é encerrada como antes.
-- Rótulos principais do intake foram aproximados da linguagem das fichas enviadas: pessoa atendida, titular/autor, escolaridade, profissão, histórico do parente e solicitação de documentos. O preview mostrou os rótulos revisados.
-- QA 0.0.15: setup, análise estática, build e integrações passaram. A suíte do projeto não foi executada (`test.ran=false`). Reteste browser com texto puramente sintético ficou visível após alternar de aba e retornar. Registro detalhado: `06_notas/debug/debug-2026-10-13-f1-t03.md`.
-- Limite remanescente conhecido: o rascunho existe em memória enquanto a ficha permanece montada; não há persistência após navegar para fora ou recarregar. Isso evita armazenar dados pessoais localmente sem política aprovada. Perguntas específicas extensas dos blocos LOAS/urbano/rural continuam agrupadas em texto livre; necessidade de granularidade adicional deve ser confirmada no reteste, sem inventar regras.
-- **B-CHK-01 permanece aberto:** provas rurais exemplificativas não definem, item a item, obrigatoriedade jurídica. Os itens demonstrativos permanecem marcados `PENDENTE APROVAÇÃO JURÍDICA`.
-- **B-TIPO-01 resolvido:** aposentadoria por idade rural; benefício por incapacidade permanente/temporária rural; salário-maternidade rural; pensão por morte rural; auxílio-reclusão rural. Documentos da terra são condicionais ao contexto rural. Decisão em `06_notas/decisao-f1-t03-tipos-e-documentos-rurais-2026-10-13.md`.
-- Nenhum dado real usado. Não houve teste humano de ponta a ponta nem aceite da F1-T03; não iniciar outra task.
+- **F1-T03 é a única task ativa e segue aberta, aguardando novo teste humano após correção.** Preview Skip 0.0.16 (`85f220f`); produção não publicada.
+- No teste humano de 0.0.15, a Champion confirmou que o preenchimento permanece ao trocar de aba, mas relatou rótulos divergentes. Foram revistos os textos do formulário e os nomes exibidos em `Dados da ficha`; versão 0.0.16 passou setup, análise estática, build e integrações. A suíte de testes do projeto não foi executada (`test.ran=false`).
+- A versão 0.0.16 foi aberta no preview; os textos do intake e os três blocos condicionais LOAS, urbano e rural apareceram. A rota de detalhe de caso requer um ID de caso autenticado e não foi revalidada nesta rodada sem criar registro. O QA da plataforma não executou a suíte.
+- **Limite de conteúdo:** cada bloco específico LOAS/urbano/rural permanece uma resposta de texto livre; agora seus títulos e orientações listam os tópicos encontrados nas fichas. Essa correção não cria uma pergunta/campo separado por tópico nem define obrigatoriedade jurídica. Não transformar a demonstração numa ficha estrutural mais extensa sem decisão de escopo; checklist rural permanece pendente de aprovação jurídica.
+- **Persistência:** alternar para outra aba e voltar foi corrigido; rascunho segue em memória somente enquanto a ficha estiver montada. Navegar para fora/recarregar pode descartar o rascunho, pois não foi aprovado armazenamento local de dados pessoais (B-POL-01).
+- **B-CHK-01 aberto:** provas rurais exemplificativas sem definição item a item de obrigatoriedade. Itens demonstrativos seguem marcados `PENDENTE APROVAÇÃO JURÍDICA`.
+- **B-TIPO-01 resolvido:** cinco tipos rurais definidos; documentos da terra condicionais ao contexto rural. Decisão `06_notas/decisao-f1-t03-tipos-e-documentos-rurais-2026-10-13.md`.
+- Não usar dados reais; não concluir F1-T03 nem iniciar outra task antes de aprovação humana explícita do reteste.
 
 ## Próximo passo
-Aguardar a Champion retestar o preview 0.0.15 e informar aprovação ou a falha remanescente. Não concluir F1-T03 até aceite humano explícito.
+A Champion testar o preview 0.0.16, verificando se os rótulos agora correspondem às fichas, se o rascunho permanece ao alternar abas e se o fluxo documental funciona. Se algum nome continuar diferente, informar o texto da tela/campo exato.
 
 ## Bloqueios ativos
 B-POL-01 (política de dados), B-RACI-01 (nomes por papel), **B-CHK-01 (aprovação jurídica final do checklist)**, B-BASE-01, B-ADV-01 e B-ADVBOX-ADVOX. B-TIPO-01, B-ENV-01 e B-INTAKE-01 resolvidos.

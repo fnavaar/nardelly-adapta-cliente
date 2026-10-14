@@ -1,23 +1,20 @@
 # Changelog — Nardelly Advogados · adapta-cliente
 
-## 2026-10-13 — F1-T03: correção após primeiro teste humano; aguardando reteste
-- Às 21:15 BRT a Champion relatou dois problemas: rótulos de campos diferentes das fichas e perda de preenchimento ao mudar de aba. F1-T03 não foi aceita e permaneceu a única task ativa.
-- **Causa reproduzida no preview 0.0.13:** ao recuperar foco, `ProtectedRoute` mudava o estado para `checking` e substituía o conteúdo protegido por uma tela de carregamento; isso desmontava `NovaFicha` e apagava os valores em estado React.
-- **Correção em `src/components/ProtectedRoute.tsx`:** conservar a rota montada durante revalidação de foco; apresentar sobreposição de validação e tornar o conteúdo temporariamente inerte; preservar o gate inicial, a revalidação server-side e o redirecionamento se a sessão for inválida.
-- **Correção de linguagem em `src/pages/NovaFicha.tsx`:** alinhar rótulos principais à linguagem das fichas do escritório (pessoa atendida, segurado/titular/autor, escolaridade, profissão atual, parente e solicitação/prazo de documentos), e detalhar o texto introdutório de benefício rural. Não se adicionou regra jurídica nem se mudou a definição aprovada dos campos da F1-T02.
-- QA Skip 0.0.14 inicialmente passou; revisão de segurança levou ao overlay inerte adicional. **QA final 0.0.15 (`214bb2c`):** setup, análise estática, build e integrações OK; `test.ran=false`, suíte do projeto não executada.
-- Reproduzido e retestado com agent-browser no preview 0.0.15: preencheu-se somente texto sintético no campo “Nome da pessoa que está sendo atendida”; após abrir outra aba e retornar, o campo continuou com `RASCUNHO SINTETICO F1T03 V015`. Também se confirmou visualmente a exibição dos rótulos revisados. Nenhuma ficha foi enviada; nenhuma massa real foi criada.
-- Preview: `https://central-de-processos-nardelly-65f79--preview.goskip.app/entrar`; produção continua sem publicação.
-- **Limite explícito:** valores são preservados quando o usuário alterna abas do navegador e a mesma tela permanece montada. Navegar para fora da ficha ou recarregar ainda perde rascunho; não foi adicionado armazenamento local de dados pessoais, aguardando a política B-POL-01. Perguntas de detalhe por família permanecem agrupadas em campos de texto; confirmar no reteste se isso é parte da divergência percebida, sem presumir desenho jurídico.
-- F1-T03 continua aberta; estado `aguardando_teste_humano`; aguardar reteste/aceite explícito da Champion. Evidência detalhada em `06_notas/debug/debug-2026-10-13-f1-t03.md`.
+## 2026-10-13 — F1-T03: segunda correção de rótulos; aguardando novo teste humano
+- Segundo reteste humano: a Champion confirmou “o preenchimento permaneceu ao trocar de aba”, mas relatou que os rótulos ainda divergiam. A F1-T03 não foi aceita e permaneceu ativa.
+- A comparação das três fichas e da decisão B-INTAKE-01 confirmou que o conteúdo específico por benefício na implementação anterior estava reduzido a uma caixa de texto por família, com títulos-resumo. Isto explica uma divergência estrutural possível, não meramente ortográfica.
+- Correção 0.0.16 aplicada: cabeçalho e rótulos de intake aproximados da formulação das fichas; “Família do benefício” renomeada para explicitar que é família (LOAS/urbano/rural), mantendo “Tipo específico” em campo separado; detalhes do canal agora nomeados conforme a opção; a ficha do caso usa nomes completos em vez de abreviações (“Nascimento” → “Data de nascimento do titular”, “Titular” → “Nome do titular do benefício (autor do processo)” etc.). Nenhuma validação, obrigatoriedade ou regra jurídica foi alterada.
+- Os blocos específicos continuam texto livre. Os títulos/placeholder passam a explicitar mais tópicos da ficha: LOAS (idade/deficiência, renda, CadÚnico, moradia, grupo familiar ilimitado, gastos); urbano (idade, benefícios anteriores, negativas, ação judicial, trabalho/contribuições e perguntas específicas conforme incapacidade/salário-maternidade/pensão/reclusão); rural (benefício, terras/períodos/companheiros/filhos/pais e benefícios correlatos). Nenhuma regra nova de obrigatoriedade foi criada; checklist jurídico rural permanece pendente.
+- QA Skip 0.0.16 (`85f220f`): setup PASS, análise estática PASS, build PASS, integrações PASS; `test.ran=false`. Preview carregou `/intake/nova`; snapshot confirmou rótulos revisados e exibição dos blocos LOAS, urbano e rural ao selecionar cada família. A rota `/caso/:id` não foi validada autenticada nesta rodada porque não se criou caso sintético; isso fica para o reteste humano.
+- Sem dados reais e sem envio/cadastro de teste nesta verificação. Produção não publicada. Reter alternância entre abas segue corrigida desde 0.0.15.
+- F1-T03 fica `aguardando_teste_humano`; aguardar verificação humana dos rótulos e do fluxo antes de qualquer conclusão.
 
-## 2026-10-13 — F1-T03 analisada; B-TIPO-01 resolvido; aguardando autorização
-- A Champion definiu cinco tipos rurais representativos e que documentos da terra são condicionais ao contexto rural; decisão em `06_notas/decisao-f1-t03-tipos-e-documentos-rurais-2026-10-13.md`.
-- B-CHK-01 permanece aberto porque a lista rural é exemplificativa e não define itens jurídicos obrigatórios individuais.
-- A F1-T03 foi implementada após autorização explícita, com conteúdo demonstrativo marcado como pendente de aprovação jurídica; QA e relato da primeira falha/reteste acima.
+## 2026-10-13 — F1-T03: correção anterior após primeiro teste humano
+- A primeira falha humana foi perda de preenchimento ao retornar à aba e rótulos divergentes.
+- Causa da perda: `ProtectedRoute` desmontava a página durante revalidação de sessão no evento de foco. Corrigido mantendo formulário montado, em modo inerte, durante revalidação server-side.
+- QA final 0.0.15 (`214bb2c`) passou setup/análise estática/build/integrações; a suíte não rodou (`test.ran=false`). Browser confirmou texto sintético preservado ao alternar aba. Produção não publicada.
+- Relatório em `06_notas/debug/debug-2026-10-13-f1-t03.md` e `artifacts/relatorio-debug-f1-t03.md`.
 
-## 2026-10-13 — F1-T03: checklist documental recebido
-- O PDF foi lido; dados pessoais de seus modelos visuais não foram reproduzidos. A Champion confirmou a natureza exemplificativa do rol rural. Não inventar obrigatoriedade por inferência.
-
-## 2026-10-13 — F1-T02 concluída e F1-T01
-- F1-T02 aceita após “tudo funcionando”; recibo `05_entregas/recibo-f1-t02-2026-10-13.md`. QA não executou a suíte de testes (`test.ran=false`). F1-T01 foi aceita em 2026-10-05; recibo `05_entregas/recibo-f1-t01-2026-10-05.md`.
+## 2026-10-13 — F1-T03 analisada; B-TIPO-01 resolvido
+- Cinco tipos rurais de demonstração aprovados; documentos da terra condicionais ao contexto rural. B-CHK-01 continua aberto porque as provas rurais são exemplificativas e não classificam a obrigatoriedade por item.
+- Implementação autorizada e entregue apenas no preview; não houve publicação.
