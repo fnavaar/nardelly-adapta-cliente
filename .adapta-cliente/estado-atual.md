@@ -3,11 +3,11 @@
 - task_id: F1-T03
 - champion: Nardelly
 - spec: `04_fase-atual/specs/spec-1-002.md`
-- etapa: aguardando_teste_humano
+- etapa: em_correcao
 - autorizacao_implementacao: confirmada em 2026-10-13 20:59 BRT — “Autorizo a implementação da F1-T03 conforme o plano apresentado, mantendo o checklist jurídico pendente de aprovação e usando apenas dados sintéticos.”
-- teste_humano: pendente — o teste de 2026-10-13 21:15 BRT falhou; reteste solicitado após correção de rótulos e perda de rascunho em 0.0.15.
-- verificacao_automatica: QA Skip 0.0.15 (`214bb2c`) passou em setup, análise estática, build e integrações; `test.ran=false`, a plataforma não executou a suíte. Preview testado: um valor sintético em “Nome da pessoa que está sendo atendida” permaneceu após alternar à segunda aba e retornar. Rótulos revisados aparecem no preview. Nenhum formulário foi enviado; dados sintéticos apenas. Produção não publicada.
+- teste_humano: parcialmente falhou em 2026-10-13 21:45 BRT — a Champion confirmou que o preenchimento permaneceu ao trocar de aba, mas “ainda há rótulos diferentes das fichas”. A task não foi aceita.
+- verificacao_automatica: correção anterior QA Skip 0.0.15 (`214bb2c`): setup, análise estática, build e integrações passaram; `test.ran=false`. Reprodução confirmada no preview para perda ao trocar abas; rótulos revistos ainda foram percebidos pela Champion como divergentes. Produção não publicada.
 - aprendizado: capturado:`06_notas/aprendizado-continuo/AP-2026-10-13-2137-preservar-formulario-revalidacao.md`
-- ultima_acao: falha humana investigada e corrigida. A revalidação de sessão ao recuperar foco agora mantém a tela montada e bloqueia interação até a confirmação do servidor. Principais rótulos foram alinhados às fichas enviadas. Evidência e limites em `06_notas/debug/debug-2026-10-13-f1-t03.md`.
-- proxima_acao: Champion testar a versão 0.0.15 no preview, especialmente alternância de aba, revalidação visual, rótulos e fluxo documental; informar aprovação ou falha remanescente.
-- atualizado_em: 2026-10-13T21:38:25-03:00
+- ultima_acao: resultado humano parcial registrado; corrigir somente rótulos e agrupamentos explicitamente cobertos pela decisão aprovada, após comparação das fichas originais; manter quaisquer requisitos jurídicos em aberto, sem novos campos ou regras presumidos.
+- proxima_acao: terminar a comparação de rótulos e conteúdo nos três blocos de família com as fichas originais e a decisão B-INTAKE-01, aplicar a correção mínima e validar novamente no preview.
+- atualizado_em: 2026-10-13T21:47:27-03:00
