@@ -3,11 +3,11 @@
 - task_id: F1-T03
 - champion: Nardelly
 - spec: `04_fase-atual/specs/spec-1-002.md`
-- etapa: em_correcao
+- etapa: aguardando_teste_humano
 - autorizacao_implementacao: confirmada em 2026-10-13 20:59 BRT — “Autorizo a implementação da F1-T03 conforme o plano apresentado, mantendo o checklist jurídico pendente de aprovação e usando apenas dados sintéticos.”
-- teste_humano: falhou em 2026-10-13 21:15 BRT — “Tenho tido problemas, além de os nomes dos campos estarem diferentes, quando eu mudo de aba, perco todo o progresso que tive no preenchimento dos dados.”
-- verificacao_automatica: versão estável disponível no preview é Skip 0.0.13 (`dfa77aa`); `test.ran=false`. Diagnóstico estático confirma que `NovaFicha.tsx` mantém os valores somente em estado React local e não salva rascunho. Ainda não reproduzido se alternar uma aba do navegador, navegar para outra tela/aba interna ou recarregar causa o descarte; discrepâncias de rótulos ainda serão comparadas com as três fichas de atendimento.
-- aprendizado: capturado:`06_notas/aprendizado-continuo/AP-2026-10-13-1953-qa-skip-suite-not-executed.md`
-- ultima_acao: teste humano reprovou F1-T03 por nomes de campos divergentes e perda de preenchimento ao mudar de aba; task permanece aberta em correção.
-- proxima_acao: reproduzir no preview separadamente alternância de aba do navegador, navegação para fora/retorno e recarga; confirmar diferenças dos rótulos frente às fichas de origem.
-- atualizado_em: 2026-10-13T21:19:13-03:00
+- teste_humano: pendente — o teste de 2026-10-13 21:15 BRT falhou; reteste solicitado após correção de rótulos e perda de rascunho em 0.0.15.
+- verificacao_automatica: QA Skip 0.0.15 (`214bb2c`) passou em setup, análise estática, build e integrações; `test.ran=false`, a plataforma não executou a suíte. Preview testado: um valor sintético em “Nome da pessoa que está sendo atendida” permaneceu após alternar à segunda aba e retornar. Rótulos revisados aparecem no preview. Nenhum formulário foi enviado; dados sintéticos apenas. Produção não publicada.
+- aprendizado: capturado:`06_notas/aprendizado-continuo/AP-2026-10-13-2137-preservar-formulario-revalidacao.md`
+- ultima_acao: falha humana investigada e corrigida. A revalidação de sessão ao recuperar foco agora mantém a tela montada e bloqueia interação até a confirmação do servidor. Principais rótulos foram alinhados às fichas enviadas. Evidência e limites em `06_notas/debug/debug-2026-10-13-f1-t03.md`.
+- proxima_acao: Champion testar a versão 0.0.15 no preview, especialmente alternância de aba, revalidação visual, rótulos e fluxo documental; informar aprovação ou falha remanescente.
+- atualizado_em: 2026-10-13T21:38:25-03:00

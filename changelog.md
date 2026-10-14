@@ -1,38 +1,23 @@
 # Changelog — Nardelly Advogados · adapta-cliente
 
+## 2026-10-13 — F1-T03: correção após primeiro teste humano; aguardando reteste
+- Às 21:15 BRT a Champion relatou dois problemas: rótulos de campos diferentes das fichas e perda de preenchimento ao mudar de aba. F1-T03 não foi aceita e permaneceu a única task ativa.
+- **Causa reproduzida no preview 0.0.13:** ao recuperar foco, `ProtectedRoute` mudava o estado para `checking` e substituía o conteúdo protegido por uma tela de carregamento; isso desmontava `NovaFicha` e apagava os valores em estado React.
+- **Correção em `src/components/ProtectedRoute.tsx`:** conservar a rota montada durante revalidação de foco; apresentar sobreposição de validação e tornar o conteúdo temporariamente inerte; preservar o gate inicial, a revalidação server-side e o redirecionamento se a sessão for inválida.
+- **Correção de linguagem em `src/pages/NovaFicha.tsx`:** alinhar rótulos principais à linguagem das fichas do escritório (pessoa atendida, segurado/titular/autor, escolaridade, profissão atual, parente e solicitação/prazo de documentos), e detalhar o texto introdutório de benefício rural. Não se adicionou regra jurídica nem se mudou a definição aprovada dos campos da F1-T02.
+- QA Skip 0.0.14 inicialmente passou; revisão de segurança levou ao overlay inerte adicional. **QA final 0.0.15 (`214bb2c`):** setup, análise estática, build e integrações OK; `test.ran=false`, suíte do projeto não executada.
+- Reproduzido e retestado com agent-browser no preview 0.0.15: preencheu-se somente texto sintético no campo “Nome da pessoa que está sendo atendida”; após abrir outra aba e retornar, o campo continuou com `RASCUNHO SINTETICO F1T03 V015`. Também se confirmou visualmente a exibição dos rótulos revisados. Nenhuma ficha foi enviada; nenhuma massa real foi criada.
+- Preview: `https://central-de-processos-nardelly-65f79--preview.goskip.app/entrar`; produção continua sem publicação.
+- **Limite explícito:** valores são preservados quando o usuário alterna abas do navegador e a mesma tela permanece montada. Navegar para fora da ficha ou recarregar ainda perde rascunho; não foi adicionado armazenamento local de dados pessoais, aguardando a política B-POL-01. Perguntas de detalhe por família permanecem agrupadas em campos de texto; confirmar no reteste se isso é parte da divergência percebida, sem presumir desenho jurídico.
+- F1-T03 continua aberta; estado `aguardando_teste_humano`; aguardar reteste/aceite explícito da Champion. Evidência detalhada em `06_notas/debug/debug-2026-10-13-f1-t03.md`.
+
 ## 2026-10-13 — F1-T03 analisada; B-TIPO-01 resolvido; aguardando autorização
-- A Champion definiu cinco tipos rurais para a demonstração ponta a ponta: aposentadoria por idade rural; benefício por incapacidade permanente/temporária rural; salário-maternidade rural; pensão por morte rural; auxílio-reclusão rural.
-- A Champion definiu que os documentos da terra da página geral são condicionais ao contexto rural/atividade na terra.
-- A decisão foi registrada em `06_notas/decisao-f1-t03-tipos-e-documentos-rurais-2026-10-13.md`; **B-TIPO-01 está resolvido**.
-- **B-CHK-01 permanece aberto:** o PDF de provas rurais é exemplificativo/não exaustivo e não define, com segurança, quais itens são requisitos obrigatórios individuais e quais são alternativas. Não será criado conteúdo jurídico fechado por inferência.
-- A análise da F1-T03 encontrou Skip 60649 v0.0.11 no preview, produção não publicada; existem `casos`, `pessoas`, `pendencias`, `rotas_triagem` e `auditoria`, mas não existem coleções de checklist/protocolo nem workflow documental.
-- Plano para autorização: construir somente o mínimo da SPEC-1-002 — checklist versionado, pendência documental com seis estados, protocolo único, recebimento/ciência, devolução com motivo/orientação, bloqueio de avanço, exceção jurídica auditada, histórico e demonstração com fixtures sintéticas. Usar plano B explicitamente marcado `PENDENTE APROVAÇÃO JURÍDICA` e itens demonstrativos sintéticos; aceitar “outro documento” e alternativas sem rejeição automática.
-- Estado: F1-T03 `aguardando_autorizacao`; nenhuma alteração de produto foi iniciada.
+- A Champion definiu cinco tipos rurais representativos e que documentos da terra são condicionais ao contexto rural; decisão em `06_notas/decisao-f1-t03-tipos-e-documentos-rurais-2026-10-13.md`.
+- B-CHK-01 permanece aberto porque a lista rural é exemplificativa e não define itens jurídicos obrigatórios individuais.
+- A F1-T03 foi implementada após autorização explícita, com conteúdo demonstrativo marcado como pendente de aprovação jurídica; QA e relato da primeira falha/reteste acima.
 
-## 2026-10-13 — F1-T03: PDF do checklist documental recebido; análise inicial
-- A Champion esclareceu que a página 1 corresponde aos documentos gerais e as páginas seguintes às provas rurais, com rol exemplificativo.
-- O PDF foi lido por extração de texto e inspeção das páginas ilustradas. Imagens/modelos com dados identificáveis não foram reproduzidos nem transcritos.
-- O resumo operacional identificou documentos gerais, documentos da terra, blocos condicionais por benefício e provas rurais condicionais por filhos, cônjuge/companheiro e pais.
-- O documento não define quais provas rurais são obrigatórias ou alternativas; não transformar o rol em checklist fechado sem aprovação jurídica.
-- Nenhuma alteração do produto.
+## 2026-10-13 — F1-T03: checklist documental recebido
+- O PDF foi lido; dados pessoais de seus modelos visuais não foram reproduzidos. A Champion confirmou a natureza exemplificativa do rol rural. Não inventar obrigatoriedade por inferência.
 
-## 2026-10-13 — F1-T03 analisada; inicialmente bloqueada
-- F1-T03 exige CA-1-102..106: checklist versionado, estados documentais, protocolo, devolução, bloqueio de avanço e exceção auditada.
-- Baseline Skip 60649 v0.0.11 tinha coleções `casos`, `pessoas`, `pendencias`, `rotas_triagem` e `auditoria`; pendência mínima com `caso`, `descricao`, `status` aberta/resolvida; sem checklist/protocolo.
-- B-CHK-01 e B-TIPO-01 foram registrados como dependências; não se pode inventar conteúdo jurídico.
-
-## 2026-10-13 — F1-T02 concluída; pedido adicional de catálogo amplo encaminhado
-- Champion declarou “tudo funcionando”; aceite cobre intake, pendências e trilha no preview.
-- CA-1-101 revalidado com caso sintético e auditoria RN-101. Recibo `05_entregas/recibo-f1-t02-2026-10-13.md`.
-- Skip 0.0.11 permanece em preview; produção não publicada; `qa.test.ran=false`.
-- Catálogo amplo de benefícios INSS ficou fora do escopo da Fase 1/F1-T02, sem implementação.
-
-## 2026-10-13 — F1-T02 implementada e aceita
-- Migração 0005 aplicada; hook RN-101, telas de intake/caso, pendências explícitas e auditoria.
-- Aceite humano: “tudo funcionando”.
-
-## 2026-10-05 — F1-T02 analisada; bloqueada por definição de intake
-- B-INTAKE-01 exigia lista de campos obrigatórios/condicionais; nenhuma implementação foi iniciada antes da decisão.
-
-## 2026-10-05 — F1-T01 concluída após aprovação humana
-- Champion declarou “Teste aprovado”; critérios CA-1-001..005 revalidados. Recibo `05_entregas/recibo-f1-t01-2026-10-05.md`.
+## 2026-10-13 — F1-T02 concluída e F1-T01
+- F1-T02 aceita após “tudo funcionando”; recibo `05_entregas/recibo-f1-t02-2026-10-13.md`. QA não executou a suíte de testes (`test.ran=false`). F1-T01 foi aceita em 2026-10-05; recibo `05_entregas/recibo-f1-t01-2026-10-05.md`.
