@@ -1,5 +1,12 @@
 # Changelog — Nardelly Advogados · adapta-cliente
 
+## 2026-10-14 — Pedido da Champion: estudo e implementação da API ADVBOX
+- Pedido recebido às 14:09 BRT: “estude, entenda e implemente toda a documentação dessa API: https://guia.advbox.com.br/api”.
+- Estudo realizado: documentação de desenvolvedor localizada em https://api.softwareadvbox.com.br (o link da central de ajuda aponta para artigos de token/n8n). Documentação completa dos 22 endpoints baixada de /llms-full.txt (121 KB, doc v1.25.0 de 22/09/2026).
+- Resumo técnico: base https://app.advbox.com.br/api/v1; Bearer Token fornecido pela ADVBOX a parceiros/integradores aprovados; limites GET 30/min, POST 500/dia por rota, PUT 500/dia; 22 endpoints em 7 recursos (Customers 4, Lawsuits 8, Posts/Tarefas 2, Publications 1, Transactions 4, Documents 2, Settings 1); GET /settings deve ser consultado primeiro para obter os IDs da conta.
+- DÚVIDA: integração ADVBOX não consta na SPEC da Fase 1 (F1-T01..T05). Escopo, objetivos e prioridade dependem de decisão do consultor. Nada foi implementado; a task ativa F1-T03 permanece bloqueada e intocada.
+- Pré-requisitos identificados para qualquer implementação: token de API (gerado em Conta e assinatura → Nossos produtos → API ADVBOX) e plano/integração habilitada no escritório.
+
 ## 2026-10-14 — F1-T03 retomada: plano B sintético, sem aprovação jurídica
 - Com autorização da Champion (“pode prosseguir”, 12:36 BRT), retomada a mesma F1-T03 dentro da SPEC-1-002; nenhuma nova task aberta.
 - Antes de implementar, a revisão do código e do estado Skip 60649 confirmou migração 0006 aplicada e achou: hook cria checklist rural até para família/tipo vazio ou não reconhecido; todos os itens de demonstração eram `obrigatoria=true` apesar do rótulo `PENDENTE APROVAÇÃO JURÍDICA`; protocolo dependia apenas de checagem de duplicidade em hook de requisição sem índice único; UI podia deixar estado da pendência inconsistente após falha ao atualizar depois de criar protocolo; e o carregamento de dados do caso mostrava erro sem status acessível em um caminho.
