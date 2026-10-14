@@ -1,7 +1,8 @@
 # Changelog — Nardelly Advogados · adapta-cliente
 
-## 2026-10-14 — F1-T03: relato de opções divergentes no seletor de família; aguardando evidência
-- A Champion reportou que `Família do benefício (LOAS, urbana ou rural)` apresenta “LOAS”, “bene la urbano” e “bene la rural”.
-- Conferidos a fonte de `src/pages/NovaFicha.tsx` na árvore Skip 60649 e o preview 0.0.16 (`85f220f`): `FAMILIAS` e o DOM do `select#familia_beneficio` mostram “LOAS (benefício assistencial)”, “Benefício urbano” e “Benefício rural”, com valores `loas`, `urbano`, `rural`.
-- A captura posteriormente descrita pela Champion mostra o cabeçalho e a parte inicial do formulário, mas não o seletor nem a URL/contexto; assim, não identifica o ambiente/versão ou a origem dos textos relatados. Não se alterou código; não houve novo QA.
-- Estado: F1-T03 bloqueada até a Champion confirmar que estava no preview 0.0.16 (produção não publicada) e, se persistir, enviar captura com seletor aberto e URL/contexto visível. Evidência `artifacts/d33720da-ccd2-48ea-9c35-6769d979667e.png`; relatório `artifacts/relatorio-debug-f1-t03-select-repro.md`.
+## 2026-10-14 — F1-T03: menu de família substituído por Select acessível; aguardando reteste humano
+- Após a Champion enviar captura do seletor aberto no preview 0.0.16 mostrando opções visualmente corrompidas (“bene la urbano/rural”) e “Selecione…” repetido, confirmou-se que o URL era o preview correto. A falha ocorria no menu nativo `<select>` apesar de os rótulos/value no DOM e na fonte estarem corretos.
+- Correção mínima em `src/pages/NovaFicha.tsx`: somente Família do benefício passou ao Radix Select já instalado. O placeholder “Selecione…” é mostrado no gatilho, não como opção duplicada no menu. Textos/valores continuam `LOAS (benefício assistencial)` / `loas`, `Benefício urbano` / `urbano`, `Benefício rural` / `rural`.
+- `package.json` atualizado para 0.0.17. Aplicado no Skip 60649 como versão `b299fc5`.
+- QA Skip: setup/static/build/integrations PASS; `test.ran=false`. Browser autenticado com conta sintética abriu `/intake/nova`; após abrir o Radix listbox, snapshot retornou exatamente as três opções corretas, sem placeholder. Não enviou ficha; nenhum dado real. Produção não publicada.
+- Estado alterado para `aguardando_teste_humano`; pedir reteste da Champion e manter F1-T03 aberta até aceite explícito. B-CHK-01 permanece pendente.
