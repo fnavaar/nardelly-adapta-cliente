@@ -3,11 +3,11 @@
 - task_id: F1-T03
 - champion: Nardelly
 - spec: `04_fase-atual/specs/spec-1-002.md`
-- etapa: bloqueada
-- autorizacao_implementacao: confirmada em 2026-10-13 20:59 BRT — “Autorizo a implementação da F1-T03 conforme o plano apresentado, mantendo o checklist jurídico pendente de aprovação e usando apenas dados sintéticos.”
-- teste_humano: aprovado parcialmente em 2026-10-14 12:26 BRT — Champion confirmou que os nomes visíveis das opções foram corrigidos. A aprovação cobre esse defeito de rótulo na versão 0.0.17, não o fluxo documental completo da F1-T03.
-- verificacao_automatica: seletor na 0.0.17 (`b299fc5`) tem QA setup/estático/build/integrações PASS; `test.ran=false`. Browser autenticado abriu o listbox e leu os rótulos completos “LOAS (benefício assistencial)”, “Benefício urbano” e “Benefício rural”. Esse resultado acessível não foi tratado como prova visual adicional além do aceite humano parcial. Produção não publicada.
+- etapa: implementando
+- autorizacao_implementacao: confirmada em 2026-10-14 12:36 BRT — “pode prosseguir”, após o assistente identificar que o caminho previsto na SPEC é continuar a F1-T03 com checklist sintético rotulado como pendente de aprovação jurídica, sem dados reais nem declaração de checklist oficial.
+- teste_humano: pendente — aceite parcial dos rótulos 0.0.17 registrado em 2026-10-14 12:26 BRT; teste humano da implementação documental desta rodada ainda não realizado.
+- verificacao_automatica: pendente nesta rodada. Projeto Skip 60649 preview 0.0.17 (`b299fc5`); migração 0006 aplicada; `.skip.config.json` tem alteração preexistente pendente que deve ser preservada. Produção não publicada.
 - aprendizado: capturado:`06_notas/aprendizado-continuo/AP-2026-10-14-1136-select-radix.md`
-- ultima_acao: Champion aprovou os rótulos urbano e rural no seletor Família do benefício (preview 0.0.17). B-CHK-01 continua aberto; a SPEC exige checklist v1 aprovado e demonstração ponta a ponta, e não há recibo/evidência de fluxo documental completo em `05_entregas/`.
-- proxima_acao: aguardar definição/aprovação do checklist jurídico B-CHK-01; depois retomar somente a validação da F1-T03 contra CA-1-102..106, incluindo fluxo de protocolo/devolução/bloqueio/exceção com dados sintéticos.
-- atualizado_em: 2026-10-14T12:31:32-03:00
+- ultima_acao: revalidação da SPEC-1-002 e do backend confirmou B-CHK-01 aberto, B-TIPO-01 resolvido, esquema documental instalado; inspeção encontrou riscos de falso obrigatório no checklist demonstrativo e protocolo sem unicidade no esquema.
+- proxima_acao: corrigir apenas as lacunas técnicas da F1-T03 previstas na SPEC para fluxo demonstrativo sintético, mantendo cada item explicitamente pendente de aprovação jurídica; depois validar no preview e rodar QA.
+- atualizado_em: 2026-10-14T12:45:33-03:00
