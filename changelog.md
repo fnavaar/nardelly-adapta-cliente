@@ -6,6 +6,7 @@
 - Resumo técnico: base https://app.advbox.com.br/api/v1; Bearer Token fornecido pela ADVBOX a parceiros/integradores aprovados; limites GET 30/min, POST 500/dia por rota, PUT 500/dia; 22 endpoints em 7 recursos (Customers 4, Lawsuits 8, Posts/Tarefas 2, Publications 1, Transactions 4, Documents 2, Settings 1); GET /settings deve ser consultado primeiro para obter os IDs da conta.
 - DÚVIDA: integração ADVBOX não consta na SPEC da Fase 1 (F1-T01..T05). Escopo, objetivos e prioridade dependem de decisão do consultor. Nada foi implementado; a task ativa F1-T03 permanece bloqueada e intocada.
 - Pré-requisitos identificados para qualquer implementação: token de API (gerado em Conta e assinatura → Nossos produtos → API ADVBOX) e plano/integração habilitada no escritório.
+- Às 14:16 BRT, a Champion solicitou integração produtiva ADVBOX–Skip “fora da metodologia”. A SPEC-1-004 limita F1-T05 a uma prova timeboxed em ambiente de teste e exclui integração produtiva; F1-T03 segue ativa e bloqueada. DÚVIDA: o consultor deve decidir sobre nova SPEC/escopo, prioridade e pré-condições. Nenhuma alteração foi feita no Skip e nenhum gate foi alterado.
 
 ## 2026-10-14 — F1-T03 retomada: plano B sintético, sem aprovação jurídica
 - Com autorização da Champion (“pode prosseguir”, 12:36 BRT), retomada a mesma F1-T03 dentro da SPEC-1-002; nenhuma nova task aberta.
